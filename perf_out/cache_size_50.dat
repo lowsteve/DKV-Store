@@ -1,0 +1,4 @@
+#Test run data with cache size 50 and 1000 puts/gets.
+#
+TestRun	LFU-10-CLIENTS	
+25-SERVER	57892	
