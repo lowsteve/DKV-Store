@@ -65,6 +65,8 @@
     <delete file="${servermanifest.file}" />
     <delete file="${perfclientjar.file}" />
     <delete file="${perfclientmanifest.file}" />
+    <delete file="${ecsjar.file}" />
+    <delete file="${ecsmanifest.file}" />
   </target>
 
   <target name="cleanall" depends="clean"/>
