@@ -28,7 +28,7 @@ Apache Log4j | Logging Utility | Used to log various events in DKV-Store as well
 Apache ZooKeeper | Configuration System | Used for maintaining the consistent hash ring of the storage service, and for implementing message passing queues.
 Google Gson | JSON Serialization Library | Used to serialize and deserialize data records and messages to be passed between storage servers and the client CLI.
 
-## Building the Code
+## Building DKV-Store
 
 The following instructions demonstrate how to build the code on a Linux/Unix
 based system. As mentioned above, DKV-Store is built with Apache Ant and
@@ -66,6 +66,33 @@ $ cd DKV-Store/
 $ ant build-jar
 ```
 
-## Running the Code
+This should compile the following files:
+
+File | Description
+---- | -----------
+m2-client.jar | The CLI client used put, get, and delete keys and values from the storage service.
+m2-ecs.jar | The CLI ECS client used by administrators to configure the storage service.
+m2-server.jar | The servers that are launched either locally or remotely through the ECS client.
+perfclient.jar | A client used for running performance tests on the server.
+
+It should be noted that the ECS client launches servers by making an SSH call
+with public key encryption, so if you intend to try out DKV-Store, you will
+need to generate an SSH key and copy it over to any server on which you intend
+to run an m2-server.jar. Assuming you would just like to try DKV-Store on a
+local machine (the default for this project), and assuming you have an SSH
+implementation installed, you can accomplish this as follows:
+
+```
+$ ssh-keygen -t rsa            # Press enter at each prompt.
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ chmod og-wx ~/.ssh/authorized-keys
+```
+
+Please use caution when running ssh-keygen to avoid overwriting any keys you
+may have already generated on your system.
+
+You should now be ready to run DKV-Store locally.
+
+## Running DKV-Store
 
 
