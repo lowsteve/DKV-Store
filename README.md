@@ -25,6 +25,6 @@ Tool/Library/Framework | Description | Usage
 ---------------------- | ----------- | -----
 Apache Ant | Build Tool | Used to build DKV-Store binaries.
 Apache Log4j | Logging Utility | Used to log various events in DKV-Store as well for the printing of debugging messages.
-Apache ZooKeeper | Configuration System | Used for maintaining the consistent hash ring of the storage server, and for implementing message passing queues.
+Apache ZooKeeper | Configuration System | Used for maintaining the consistent hash ring of the storage service, and for implementing message passing queues.
 Google Gson | JSON Serialization Library | Used to serialize and deserialize data records and messages to be passed between storage servers and the client CLI.
 
