@@ -72,7 +72,7 @@ File | Description
 ---- | -----------
 m2-client.jar | The CLI client used put, get, and delete keys and values from the storage service.
 m2-ecs.jar | The CLI ECS client used by administrators to configure the storage service.
-m2-server.jar | The servers that are launched either locally or remotely through the ECS client.
+m2-server.jar | The storage servers that are launched either locally or remotely through the ECS client.
 perfclient.jar | A client used for running performance tests on the server.
 
 It should be noted that the ECS client launches servers by making an SSH call
