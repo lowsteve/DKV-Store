@@ -1,1 +1,9 @@
 bin/
+CLIENT_MANIFEST.MF
+ECS_MANIFEST.MF
+PERF_MANIFEST.MF
+SERVER_MANIFEST.MF
+m2-client.jar
+m2-ecs.jar
+m2-server.jar
+perfclient.jar
