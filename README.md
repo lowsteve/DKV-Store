@@ -112,7 +112,7 @@ $ tar -xzf zookeeper-3.4.14.tar.gz
 ```
 
 Navigate into this newly created directory (`zookeeper-3.4.14/`). The ZooKeeper
-server requires a configuration file in order to run. By default, it looks for
+server requires a configuration file in order to run, by default, it looks for
 this file in `conf/zoo.cfg` under the root of the ZooKeeper directory. A sample
 configuration file is provided with ZooKeeper releases under
 `conf/zoo_sample.cfg`, which you will need to rename or copy:
