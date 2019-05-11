@@ -45,7 +45,7 @@ OpenJDK 64-Bit Server VM (build 11.0.3+4, mixed mode)
 ```
 
 ```
-$ ant -v
+$ ant -version
 Apache Ant(TM) version 1.10.5 compiled on September 9 2018
 ```
 
