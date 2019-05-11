@@ -28,7 +28,10 @@ Apache Log4j | Logging Utility | Used to log various events in DKV-Store as well
 Apache ZooKeeper | Configuration System | Used for maintaining the consistent hash ring of the storage service, and for implementing message passing queues.
 Google Gson | JSON Serialization Library | Used to serialize and deserialize data records and messages to be passed between storage servers and the client CLI.
 
-## Building DKV-Store
+## Building & Setting Up DKV-Store
+
+
+#### Building
 
 The following instructions demonstrate how to build the code on a Linux/Unix
 based system. As mentioned above, DKV-Store is built with Apache Ant and
@@ -75,6 +78,8 @@ m2-ecs.jar | The CLI ECS client used by administrators to configure the storage 
 m2-server.jar | The storage servers that are launched either locally or remotely through the ECS client.
 perfclient.jar | A client used for running performance tests on the server.
 
+#### SSH Setup
+
 It should be noted that the ECS client launches servers by making an SSH call
 with public key encryption, so if you intend to try out DKV-Store, you will
 need to generate an SSH key and copy it over to any server on which you intend
@@ -91,8 +96,54 @@ $ chmod og-wx ~/.ssh/authorized-keys
 Please use caution when running ssh-keygen to avoid overwriting any keys you
 may have already generated on your system.
 
+#### ZooKeeper Setup
+
+Before we get to the running instructions for DKV-Store, the final thing we need
+is to have a ZooKeeper instance running. ZooKeeper releases can be downloaded
+from the official website [here](https://zookeeper.apache.org/releases.html).
+These instructions have been tested and are known to work with ZooKeeper 3.4.14.
+
+Upon downloading ZooKeeper, you should end up with a file such as
+`zookeeper-3.4.14.tar.gz`. Move this file to a directory of your choosing and
+extract it as follows:
+
+```
+$ tar -xzf zookeeper-3.4.14.tar.gz
+```
+
+Navigate into this newly created directory (`zookeeper-3.4.14/`). The ZooKeeper
+server requires a configuration file in order to run. By default, it looks for
+this file in `conf/zoo.cfg` under the root of the ZooKeeper directory. A sample
+configuration file is provided with ZooKeeper releases under
+`conf/zoo_sample.cfg`, which you will need to rename or copy:
+
+```
+$ cp conf/zoo_sample.cfg conf/zoo.cfg
+```
+
+A full explanation of this configuration file is outside the scope of this
+guide, however you can check the official ZooKeeper documentation if you'd like
+to know more. For simplicity, these instructions will run DKV-Store with
+ZooKeeper in its default configuration.
+
+Next, we'll need to start the ZooKeeper server. A launcher for the server can
+be found in the `bin/` directory, and is called `zkServer.sh`. The server can
+be run in either the foreground or background as follows:
+
+background:
+```
+$ ./bin/zkServer.sh start
+```
+
+foreground:
+```
+$ ./bin/zkServer.sh start-foreground
+```
+
+By default this will launch the ZooKeeper service on the localhost at port
+2181.
+
 You should now be ready to run DKV-Store locally.
 
 ## Running DKV-Store
-
 
